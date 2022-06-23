@@ -8,3 +8,23 @@ In this commit, I added Research button which links to one Server-side rendering
 In this commit, I added Nx and moved app to frontends/example folder.
 After deployed to Vercel. 
 There is an error when I clicked on Research button ( which will link to a SSR page)
+
+# Using repo:
+
+1. Install packages
+```bash
+$ yarn
+```
+
+2. Add vercel configuration
+- Replace `orgId` and `projectId` in `frontends/example/.vercel/project.json` file
+
+3. Build `example` project by Vercel CLI
+```bash
+$ yarn nx vercel-build example
+```
+
+4. Deploy `example` app to Vercel by Vercel CLI
+```bash
+$ yarn nx vercel-deploy example --token <your vercel token which accesses to your org that you config in step 2>
+```
