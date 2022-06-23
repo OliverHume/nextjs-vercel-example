@@ -1,0 +1,7 @@
+{
+  "projectId": "projectId",
+  "orgId": "teamId",
+  "settings": {
+    "framework": "nextjs"
+  }
+}
