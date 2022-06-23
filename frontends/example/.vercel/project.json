@@ -2,6 +2,7 @@
   "projectId": "projectId",
   "orgId": "teamId",
   "settings": {
-    "framework": "nextjs"
+    "framework": "nextjs",
+    "buildCommand": "nx build example"
   }
 }

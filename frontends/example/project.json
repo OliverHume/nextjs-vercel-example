@@ -1,0 +1,55 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "example",
+  "root": "frontends/example",
+  "sourceRoot": ["frontends/example"],
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "next build"
+          }
+        ],
+        "parallel": false,
+        "cwd": "frontends/example"
+      },
+      "outputs": ["frontends/example/.next"],
+      "dependsOn": []
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "next dev",
+            "forwardAllArgs": false
+          }
+        ],
+        "cwd": "frontends/example"
+      },
+      "outputs": ["frontends/example/.next"],
+      "dependsOn": [
+        { "target": "build", "projects": "dependencies" },
+        { "target": "generate", "projects": "dependencies" }
+      ]
+    },
+    "vercel-build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx vercel build",
+        "cwd": "frontends/example"
+      }
+    },
+    "vercel-deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx vercel deploy --prebuilt",
+        "cwd": "frontends/example"
+      }
+    }
+  },
+  "tags": ["scope:example"]
+}
